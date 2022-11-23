@@ -69,7 +69,7 @@
       <div class="icon">
         <i class="ion ion-stats-bars"></i>
       </div>
-      <a href="index.php?p=datapermintaan" class="small-box-footer">Info Lebih Lanjut <i class="fa fa-arrow-circle-right"></i></a>
+      <a href="index.php?p=datapermintaan_table" class="small-box-footer">Info Lebih Lanjut <i class="fa fa-arrow-circle-right"></i></a>
     </div>
   </div>
   <div class="col-lg-4 col-xs-12">
@@ -82,7 +82,7 @@
       <div class="icon">
         <i class="ion ion-stats-bars"></i>
       </div>
-      <a href="index.php?p=datapengajuan" class="small-box-footer">Info Lebih Lanjut <i class="fa fa-arrow-circle-right"></i></a>
+      <a href="index.php?p=datapengajuan_table" class="small-box-footer">Info Lebih Lanjut <i class="fa fa-arrow-circle-right"></i></a>
     </div>
   </div>
   <!-- ./col -->
