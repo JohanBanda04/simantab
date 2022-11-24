@@ -17,18 +17,31 @@
           <!-- small box -->
           <div class="small-box bg-blue" style="border-radius: 25px">
             <div class="inner">
-              <p><font size="5px"><b>Data Permintaan</b></font></p>
+                <?php
+                include "../fungsi/koneksi.php";
+                include "../fungsi/fungsi.php";
+                    $query_get_jml_data_permintaan = mysqli_query($koneksi,"select tgl_permintaan, count(*) as 
+jumlah_permintaan from sementara 
+where unit='$_SESSION[username]' and user_id='$_SESSION[user_id]' and id_subbidang='$_SESSION[subbidang_id]' 
+and status_acc in ('Permintaan Baru','Pengajuan Kasub','setuju') 
+group by tgl_permintaan desc");
+
+                $dt = mysqli_fetch_array($query_get_jml_data_permintaan)
+                ?>
+              <p><font size="5px"><b>Data Permintaan : <?php echo $dt['jumlah_permintaan']??'0' ?></b></font></p>
               <p>Data Permintaan Barang</p>
             </div>
             <div class="icon">
               <i class="ion ion-bag"></i>
             </div>
-            <a href="index.php?p=datapesanan" class="small-box-footer">Info Lebih Lanjut <i class="fa fa-arrow-circle-right"></i></a>
+<!--            <a href="index.php?p=datapesanan" class="small-box-footer">Info Lebih Lanjut <i class="fa fa-arrow-circle-right"></i></a>-->
+            <a href="index.php?p=datapesanan_table" class="small-box-footer">Info Lebih Lanjut <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
         <!-- ./col -->
-		
-		<div class="col-lg-4 col-xs-12">
+
+          <!--ori yang disembunyikan-->
+		<div class="hide col-lg-4 col-xs-12">
           <!-- small box -->
           <div class="small-box bg-green" style="border-radius: 25px">
             <div class="inner">
@@ -42,8 +55,38 @@
           </div>
         </div>
         <!-- ./col -->
+
+          <div class="col-lg-4 col-xs-12">
+              <!-- small box -->
+              <div class="small-box bg-green" style="border-radius: 25px">
+                  <div class="inner">
+                      <p><font size="5px"><b>History Permintaan Barang</b></font></p>
+                      <p>History Permintaan Barang</p>
+                  </div>
+                  <div class="icon">
+                      <i class="ion ion-stats-bars"></i>
+                  </div>
+                  <a href="index.php?p=history_permintaan_barang_table" class="small-box-footer">Info Lebih Lanjut <i
+                              class="fa fa-arrow-circle-right"></i></a>
+              </div>
+          </div>
+
+          <div class="col-lg-4 col-xs-12">
+              <!-- small box -->
+              <div class="small-box bg-orange-active" style="border-radius: 25px">
+                  <div class="inner">
+                      <p><font size="5px"><b>Cetak BPP Barang</b></font></p>
+                      <p>Cetak BPP Barang</p>
+                  </div>
+                  <div class="icon">
+                      <i class="ion ion-stats-bars"></i>
+                  </div>
+                  <a href="index.php?p=cetak_bpp_baru_table" class="small-box-footer">Info Lebih Lanjut <i
+                              class="fa fa-arrow-circle-right"></i></a>
+              </div>
+          </div>
 		
-		<div class="col-lg-4 col-xs-12">
+		<div class="hide col-lg-4 col-xs-12">
           <!-- small box -->
           <div class="small-box bg-red" style="border-radius: 25px">
             <div class="inner">

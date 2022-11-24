@@ -33,7 +33,7 @@ while($dt = mysqli_fetch_array($query)){
         <div class="col-sm-12 col-xs-12">
             <div class="box box-primary">
                 <div class="box-header with-border">
-                    <h3 class="text-center">TCatatan Tidak Setuju</h3>
+                    <h3 class="text-center">Caatatan Tidak Setuju</h3>
                 </div>
                 <form method="post"  action="simpan_catatan_tidak_setuju_kasub_operator.php" class="form-horizontal">
                     <div class="box-body">

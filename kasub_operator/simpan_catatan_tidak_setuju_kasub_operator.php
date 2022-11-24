@@ -26,7 +26,7 @@ where id_sementara='$id_sementara'");
     if($query_update){
         //index.php?p=detilpermintaan&unit=Undar&user_id=23&tgl_permintaan=2022-10-29
         echo "<script>window.alert('Berhasil Simpan Note')
-		window.location='index.php?p=detilpermintaan&unit=$_POST[unit]&user_id=$_POST[user_id]&tgl_permintaan=$_POST[tgl_permintaan]'</script>";
+		window.location='index.php?p=detilpermintaan_table&unit=$_POST[unit]&user_id=$_POST[user_id]&tgl_permintaan=$_POST[tgl_permintaan]'</script>";
 
     } else {
         echo "gagal euy cuy" . mysqli_error($koneksi);

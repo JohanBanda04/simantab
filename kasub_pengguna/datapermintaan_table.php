@@ -77,7 +77,7 @@ where id_subbidang='$_SESSION[subbidang_id]'");
                         $nama_subbidang = $item['nama_subbidang'];
                     }
                     ?>
-                    <h3 class="text-center">DData Permintaan Barang <strong><?php echo $nama_subbidang; ?></strong></h3>
+                    <h3 class="text-center">Data Peermintaan Barang <strong><?php echo $nama_subbidang; ?></strong></h3>
                 </div>
                 <center>
                     <!--                    <form method="POST" action="filter_permintaan_by_range_tgl.php" class="form-inline">-->

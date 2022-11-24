@@ -10,10 +10,10 @@ if (isset($_GET['tgl'])) {
 on sementara.kode_brg=stokbarang.kode_brg 
 where unit='$_SESSION[username]' and user_id='$_SESSION[user_id]' and tgl_permintaan='$tgl' ");
 
-    $query = mysqli_query($koneksi," select * from sementara inner join stokbarang 
+    $query = mysqli_query($koneksi,"select * from sementara inner join stokbarang 
 on sementara.kode_brg=stokbarang.kode_brg 
 where unit='$_SESSION[username]' and user_id='$_SESSION[user_id]' and tgl_permintaan='$tgl' and 
-status_acc in('Pengajuan Kasub','setuju','tidak_setuju')");
+status_acc in('Pengajuan Kasub','setuju','tidak_setuju','Permintaan Baru')");
 
 }
 

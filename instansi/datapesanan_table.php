@@ -25,7 +25,7 @@ if (isset($_POST['tampilkan'])) {
     $_SESSION['tanggala'] = $tanggala;
     $_SESSION['tanggalb'] = $tanggalb;
 
-    echo "passaatpencet tampilkan lalu dilakukan set tanggala dan tanggalb";
+//    echo "passaatpencet tampilkan lalu dilakukan set tanggala dan tanggalb";
 
     echo $tanggala . "::";
     echo $tanggalb . "::";
@@ -43,7 +43,7 @@ group by tgl_permintaan desc");
 
 } else {
     if (isset($_SESSION['tanggala']) && isset($_SESSION['tanggalb'])) {
-        echo "tanpapencet tampilkan tapi sudah set tanggala dan tanggalb";
+//        echo "tanpapencet tampilkan tapi sudah set tanggala dan tanggalb";
 
         $query_group_by_tgl_bk_2 = mysqli_query($koneksi, "select tgl_permintaan, count(*) as jumlah_permintaan from sementara 
 where unit='$_SESSION[username]' and user_id='$_SESSION[user_id]' and id_subbidang='$_SESSION[subbidang_id]' 
@@ -57,7 +57,7 @@ and status_acc in ('Permintaan Baru','Pengajuan Kasub','setuju')
 group by tgl_permintaan desc");
 
     } else {
-        echo "belumpencet tampilkan";
+//        echo "belumpencet tampilkan";
         $query_group_by_tgl_bk_3 = mysqli_query($koneksi, "select tgl_permintaan, count(*) as jumlah_permintaan from sementara 
 where unit='$_SESSION[username]' and user_id='$_SESSION[user_id]' and id_subbidang='$_SESSION[subbidang_id]' 
 and status_acc in ('Permintaan Baru','Pengajuan Kasub','setuju') 

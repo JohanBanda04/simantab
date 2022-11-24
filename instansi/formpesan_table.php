@@ -12,7 +12,7 @@ $error = "";
             <!--Kolom Sebelah Kiri-->
             <div class="box box-primary">
                 <div class="box-header with-border">
-                    <h3 class="text-center">sForm Permintaan Barang</h3>
+                    <h3 class="text-center">Foorm Permintaan Barang</h3>
                 </div>
                 <form method="post" id="tes" action="add-proses.php" class="form-horizontal">
                     <div class="box-body">
