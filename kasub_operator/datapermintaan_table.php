@@ -100,7 +100,7 @@ between '$tgl_satu_bulan_lalu' AND '$sekarang' and status_acc='Pengajuan Kasub B
                                 <th>No</th>
                                 <!--                                <th>Bendahara Brg</th>-->
                                 <th>Nama</th>
-                                <th>Bendahara</th>
+                                <th>Pengelola</th>
                                 <th>User ID</th>
                                 <th>Tgl Permintaan</th>
                                 <th>Intansi</th>

@@ -185,7 +185,11 @@ group by sementara.tgl_permintaan DESC,sementara.unit");
                                         <tr>
                                             <td><?php echo $no; ?></td>
 <!--                                            <td>--><?php //echo $dt['user_id']; ?><!--</td>-->
-                                            <td><?php echo $dt['status_acc']; ?></td>
+                                            <td><?php if($dt['status_acc']=='Pengajuan Kasub Bendahara'){
+                                                    echo "Pengajuan Kasub Pengelola";
+                                                } else {
+                                                    echo $dt['status_acc'];
+                                                } ?></td>
                                             <td><?php echo tanggal_indo($dt['tgl_permintaan']); ?></td>
                                             <td><?php echo ucwords($dt['unit']); ?></td>
                                             <td><?php echo ucwords($dt['instansi']); ?></td>
