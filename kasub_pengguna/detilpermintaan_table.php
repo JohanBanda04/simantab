@@ -41,7 +41,7 @@ INNER JOIN stokbarang ON sementara.kode_brg = stokbarang.kode_brg
         <div class="col-sm-12">
             <div class="box box-primary">
                 <div class="box-header with-border">
-                    <h3 class="text-center">Koonfirmasi Permintaan <?php echo $unit; ?></h3><br>
+                    <h3 class="text-center">Konfirmasi Permintaan <?php echo $unit; ?></h3><br>
                     <center>
                         <span style="font-weight: bold; font-size: 25px"><?php echo tanggal_indo($tgl_permintaan);?></span>
                     </center>
@@ -138,7 +138,7 @@ INNER JOIN stokbarang ON sementara.kode_brg = stokbarang.kode_brg
                                         <span id="alasan_tidak_setuju" data-placement='top' data-toggle='tooltip' title='Alasan Tidak Setuju'>
                                             <button id="alasan_tidak_setuju"
                                                     class="btn btn-danger  ">
-                                                STidak Setujui
+                                                Tiidak Setujui
                                             </button>
 
                                         </span>

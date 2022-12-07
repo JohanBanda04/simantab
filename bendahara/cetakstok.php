@@ -22,7 +22,7 @@
   div.kanan {
    width:300px;
    float:right;
-   margin-left:210px;
+   margin-left:180px;
    margin-top:-140px;
  }
 
@@ -127,11 +127,11 @@
   </div>
 
   <div class="kanan">
-    <p>Mengetahui :<br>Bendahara </p>
+    <p>Mengetahui :<br>Pengelola </p>
     <br>
     <br>
     <br>
-    <p><b><u>Nama Bendahara</u><br>NIK : ..................</b></p>
+    <p><b><u>Nama Pengelola Persediaan Barang</u><br>NIK : ..................</b></p>
   </div>
 
   <!-- Disini Set Cetak PDF untuk Olah Data Stok Barang  ATK -->

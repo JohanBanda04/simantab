@@ -25,7 +25,7 @@ if ($kode_brg) {
         <div class="col-sm-12 col-xs-12">
             <div class="box box-primary">
                 <div class="box-header with-border">
-                    <h3 class="text-center">sTambah Data Stok Barang</h3>
+                    <h3 class="text-center">Taambah Data Stok Barang</h3>
                 </div>
                 <form method="post"  action="add-proses-m1.php" class="form-horizontal">
                     <div class="box-body">

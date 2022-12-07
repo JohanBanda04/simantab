@@ -147,7 +147,7 @@ between '$tgl_satu_bulan_lalu' AND '$sekarang' and status_acc='Pengajuan Kasub B
         <span style="color: black">
 <!--            index.php?p=history_kasub&pa=history_kasub_operator-->
         NB : Setelah semua permintaan dari Bendahara disetujui, Anda dapat melihat posisi proses pada menu
-            <a style="font-weight: bold" href="index.php?p=history_kasub_operator&pa=history_kasub_operator">
+            <a style="font-weight: bold" href="index.php?p=history_kasub_operator_table&pa=history_kasub_operator">
                 History
             </a>
     </span>

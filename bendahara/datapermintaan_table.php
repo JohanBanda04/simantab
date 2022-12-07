@@ -173,7 +173,7 @@ group by sementara.tgl_permintaan DESC,sementara.unit");
                                 <th>Tgl Permintaan</th>
                                 <th>Nama</th>
                                 <th>Intansi</th>
-                                <th>Aksis</th>
+                                <th>Aksi</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -188,7 +188,7 @@ group by sementara.tgl_permintaan DESC,sementara.unit");
                                             <td><?php echo $dt['status_acc']; ?></td>
                                             <td><?php echo tanggal_indo($dt['tgl_permintaan']); ?></td>
                                             <td><?php echo ucwords($dt['unit']); ?></td>
-                                            <td><?php echo $dt['instansi']; ?></td>
+                                            <td><?php echo ucwords($dt['instansi']); ?></td>
                                             <td>
                                                 <a href="?p=detilpermintaan_table&unit=<?= $dt['unit'];?>&tgl=<?= $dt['tgl_permintaan']; ?>&user_id_pemohon=<?php echo $dt['user_id'];?>&bendahara_id=<?php echo $dt['bendahara_id']; ?>">
                                         <span data-placement='top' data-toggle='tooltip' title='Detail Permintaan'>

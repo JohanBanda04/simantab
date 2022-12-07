@@ -40,7 +40,7 @@ if(isset($_GET['id_jenis']) ? $_GET['id_jenis'] : ''){
     <div class="col-sm-12">
       <div class="box box-primary">
         <div class="box-header with-border">
-          <h3 class="text-center">Olah Dataa Stok Barang <span style="font-weight: bold"><?php echo $nama_kategori;?></span></h3>
+          <h3 class="text-center">Olah Data Stok Baraang <span style="font-weight: bold"><?php echo $nama_kategori;?></span></h3>
         </div>                
         <div class="box-body">
           <div class="row">
@@ -50,13 +50,17 @@ if(isset($_GET['id_jenis']) ? $_GET['id_jenis'] : ''){
 
               <!--lanjutkan disini-->
             <div class="col-md-2 pull-right">
-              <a target="_blank" href="cetakstok.php?idjenis=<?= $id_jenis;  ?>" class="btn btn-success"><i class="fa fa-print"></i> Cetak Data Stok</a><br>
+              <a target="_blank" href="cetakstok.php?idjenis=<?= $id_jenis;  ?>" class="btn btn-success">
+                  <i class="fa fa-print"></i>
+                  Cetak Data Stok
+              </a>
+                <br>
             </div>
             <br><br>
           </div>                        
           <div class="table-responsive">
             <table class="table text-center" id="material">
-             <thead  > 
+             <thead >
               <tr>
                <th>No</th>
 
@@ -68,6 +72,7 @@ if(isset($_GET['id_jenis']) ? $_GET['id_jenis'] : ''){
                <th>Keluar</th>
                <th>Sisa</th>
                <th>Keterangan</th>
+               <th>Operator</th>
 
                <th>Aksi</th>	                				
              </tr>
@@ -91,6 +96,7 @@ if(isset($_GET['id_jenis']) ? $_GET['id_jenis'] : ''){
                 <td> <?= $row['keluar']; ?> </td>                                         
                 <td> <?= $row['sisa']; ?> </td>
                 <td> <?= $row['keterangan']; ?> </td>
+                <td> <?= $row['bendahara']; ?> </td>
 
 
                 <td>

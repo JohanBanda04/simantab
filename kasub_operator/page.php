@@ -25,6 +25,8 @@ if ($page=="") {
     include_once "history_kasub_operator_table.php";
 }else if ($page=="detilpermintaan_history_kasuboperator_table") {
     include_once "detilpermintaan_history_kasuboperator_table.php";
+}else if ($page=="data_user_view_kasub_operator") {
+    include_once "data_user_view_kasub_operator.php";
 }
 
 

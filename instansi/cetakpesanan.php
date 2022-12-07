@@ -149,12 +149,19 @@ where username='$_SESSION[username]' and id_user='$_SESSION[user_id]'");
             <?php
 
 
-            $queries = mysqli_query($koneksi, "select * from ((sementara inner join permintaan on 
+            $queries_bk = mysqli_query($koneksi, "select * from ((sementara inner join permintaan on 
 sementara.id_sementara=permintaan.id_sementara) inner join
 stokbarang on sementara.kode_brg=stokbarang.kode_brg) where 
 sementara.tgl_permintaan='$tgl' and sementara.unit='$_SESSION[username]' 
 and sementara.user_id='$_SESSION[user_id]' and sementara.status_acc in ('Selesai','Penerimaan Barang Dari Bendahara') 
 and bendahara_id='$bendahara_id' and permintaan.status='1'");
+
+            $queries = mysqli_query($koneksi, "select * from ((sementara inner join permintaan on 
+sementara.id_sementara=permintaan.id_sementara) inner join
+stokbarang on sementara.kode_brg=stokbarang.kode_brg) where 
+sementara.tgl_permintaan='$tgl' and sementara.unit='$_SESSION[username]' 
+and sementara.user_id='$_SESSION[user_id]' and sementara.status_acc in ('Selesai','Penerimaan Barang Dari Bendahara') 
+and sementara.bendahara_id='$bendahara_id' and permintaan.status='1'");
             $i   = 1;
             $total = 0;
             while($data=mysqli_fetch_array($queries))
@@ -232,6 +239,7 @@ if ($query2){
 jumlah, satuan, tgl_permintaan FROM permintaan 
 INNER JOIN stokbarang ON permintaan.kode_brg = stokbarang.kode_brg  
 WHERE unit='$unit' AND  status=1 AND tgl_permintaan='$tgl' ");
+
         $dts_bk = mysqli_query($koneksi, "select * from ((sementara inner join permintaan 
 on sementara.id_sementara=permintaan.id_sementara) inner join
 stokbarang on sementara.kode_brg=stokbarang.kode_brg) where 
@@ -239,20 +247,28 @@ sementara.tgl_permintaan='$tgl' and sementara.unit='$_SESSION[username]'
 and sementara.user_id='$_SESSION[user_id]' and sementara.status_acc='Selesai'
 and permintaan.status='1'");
 
-        $dts = mysqli_query($koneksi, "select * from ((sementara inner join permintaan 
+        $dts_old_3 = mysqli_query($koneksi, "select * from ((sementara inner join permintaan 
 on sementara.id_sementara=permintaan.id_sementara) inner join
 stokbarang on sementara.kode_brg=stokbarang.kode_brg) where 
 sementara.tgl_permintaan='$tgl' and sementara.unit='$_SESSION[username]' 
 and sementara.user_id='$_SESSION[user_id]' and sementara.status_acc in ('Selesai','Penerimaan Barang Dari Bendahara') 
  and bendahara_id='$bendahara_id' and permintaan.status='1'");
 
+        $query_dts = mysqli_query($koneksi, "select * from ((sementara inner join permintaan 
+on sementara.id_sementara=permintaan.id_sementara) inner join
+stokbarang on sementara.kode_brg=stokbarang.kode_brg) where 
+sementara.tgl_permintaan='$tgl' and sementara.unit='$_SESSION[username]' 
+and sementara.user_id='$_SESSION[user_id]' and sementara.status_acc in ('Selesai','Penerimaan Barang Dari Bendahara') 
+ and sementara.bendahara_id='$bendahara_id' and permintaan.status='1'");
 
 
-        while($dt = mysqli_fetch_array($dts)) { ?>
+
+        while($dt = mysqli_fetch_array($query_dts)) { ?>
             <?php
             $operator_id = $dt['bendahara_id'];
 
-            $q = mysqli_query($koneksi,"select * from `user` where id_user='$operator_id'");
+//            echo $bendahara_id;
+            $q = mysqli_query($koneksi,"select * from user where id_user='$bendahara_id'");
             $datas = mysqli_fetch_array($q);
 
             $nama_op = $datas['nama_lengkap'] ;
@@ -260,20 +276,21 @@ and sementara.user_id='$_SESSION[user_id]' and sementara.status_acc in ('Selesai
             ?>
 
         <?php }
+
     ?>
 
     <div class="kanan">
         <p></p>
-        <?php $q = mysqli_query($koneksi,"select * from `user` where id_user='$operator_id'");
+        <?php $q = mysqli_query($koneksi,"select * from user where id_user='$operator_id'");
             while ($data = mysqli_fetch_array($q)){?>
                 <?php $operator_name = $dt['nama_lengkap']?>
             <?php }
         ?>
-        <p>Dikeluarkan Oleh :<br>Petugas Gudang</p>
+        <p>Dikeluarkan Oleh :<br>Pengelola Persediaan Barang</p>
         <p></p>
         <p> </p>
 <!--        <b><p><u>Siti Rusdah </u><br>NIK: 198507122010012039</p></b>-->
-        <b><p><u><span hidden><?php echo $nama_op; ?> </span></u><br>NIP: <?php echo $nik; ?></p></b>
+        <b><p><u><span ><?php echo $nama_op; ?> </span></u><br>NIP: <?php echo $nik; ?></p></b>
         <br>
         <br>
         <br>
@@ -283,11 +300,23 @@ and sementara.user_id='$_SESSION[user_id]' and sementara.status_acc in ('Selesai
     <div class="tengah">
         <p></p>
 <!--        <p>Disetujui Oleh :<br>Lurah </p>-->
-        <p>Disetujui Oleh :<br>Kasub Operator </p>
+        <?php
+        include "../fungsi/koneksi.php";
+            $query_get_users = mysqli_query($koneksi,"select * from user where jabatan='Kasub Operator'");
+
+            while ($dt_kasub_operator = mysqli_fetch_array($query_get_users)){
+                $nama_jabatan = $dt_kasub_operator['jabatan'];
+                $nama_kasub_operator = $dt_kasub_operator['nama_lengkap'];
+                $nik_kasub_operator = $dt_kasub_operator['nik'];
+            }
+        ?>
+        <p>Disetujui Oleh :<br><?php if($nama_jabatan=="Kasub Operator"){
+            echo "Kasub Pengelola";
+            } ?> </p>
         <p></p>
         <p> </p>
 <!--        <b><p><u>Darsito, S.Sos </u><br>NIK: 196606051986031015</p></b>-->
-        <b><p><u>Ricky Aditya Supratman, S.E. </u><br>NIP: 198710282010121003</p></b>
+        <b><p><u><?php echo $nama_kasub_operator; ?> </u><br>NIP: <?php echo $nik_kasub_operator; ?></p></b>
         <br>
         <br>
         <br>

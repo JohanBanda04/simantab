@@ -9,7 +9,7 @@ if (isset($_GET['tgl']) && isset($_GET['unit'])) {
     $user_id_pemohon = $_GET['user_id_pemohon'];
     $bendahara_id = isset($_GET['bendahara_id']) ? $_GET['bendahara_id'] : '';
 
-    echo "bendahara_id:" . $bendahara_id . "::";
+//    echo "bendahara_id:" . $bendahara_id . "::";
 
     $query = mysqli_query($koneksi, "select * from ((permintaan inner join stokbarang on permintaan.kode_brg=stokbarang.kode_brg) 
 inner join sementara on permintaan.id_sementara=sementara.id_sementara) where 
@@ -199,12 +199,31 @@ if (isset($_GET['aksi'])) {
                                                     <!--                                                </form>-->
                                                 <?php } else { ?>
                                                     <!--                                                <a href="index.php?p=sudah_serahkan_barang_ke_pengguna&id_sementara=--><?php //echo $row['id_sementara'];?><!--" class="btn btn-info"-->
-                                                    <a href="../<?php echo $row['path_foto']; ?>" class="btn btn-info"
-                                                       title="Konfirmasi Selesai" target="_blank"
-                                                       data-placement='top'
-                                                       data-toggle='tooltip' onclick="return confirm('Lihat Foto?')">
-                                                        Lihat Foto Penyerahan
-                                                    </a>
+                                                    <!--metode penggunaan satu baris tombol yang ada di satu baris-->
+                                                    <div style=" width: 200px">
+                                                        <a style="" href="../<?php echo $row['path_foto']; ?>" class="btn btn-info"
+                                                           title="Lihat Foto Penyerahan" target="_blank"
+                                                           data-placement='top'
+                                                           data-toggle='tooltip' onclick="return confirm('Lihat Foto?')">
+                                                            Lihat Foto Penyerahan
+                                                        </a>
+
+                                                        <!--                                                    <a href="index.php?p=sudah_serahkan_barang_ke_pengguna&id_sementara=--><?php //echo $row['id_sementara'];?><!--" class="btn btn-info"-->
+                                                        <!--                                                       title="Konfirmasi Selesai"-->
+                                                        <!--                                                       data-placement='top'-->
+                                                        <!--                                                       data-toggle='tooltip' onclick="return confirm('Konfirmasi Selesai?')">-->
+                                                        <!--                                                        Ganti Bukti-->
+                                                        <!--                                                    </a>-->
+
+                                                        <!--LANJUTKAN DISINI BENAHI URL UNTUK GANTI FOTO BUKTI-->
+                                                        <a id="bt_ganti Foto" href="index.php?p=sudah_serahkan_barang_ke_pengguna_table&id_sementara=<?php echo $row['id_sementara'];?>">
+                                                        <span class="btn btn-success"
+                                                              data-placement='top' data-toggle='tooltip'
+                                                              title='Ganti Foto Bukti'>
+                                                            <i class="fa fa-check"></i>
+                                                        </span>
+                                                        </a>
+                                                    </div>
                                                 <?php }
                                                 ?>
 

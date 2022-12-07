@@ -69,7 +69,7 @@ $tgl= $_GET['tgl'];
                 <td style="text-align: center; width=90px;"><b>Harga Barang</b></td>
                 <td style="text-align: center; width=50px;"><b>Jumlah</b></td>
 
-                <td style="text-align: center; width=70px;"><b>Total</b></td>
+                <td style="text-align: center; width=90px;"><b>Total</b></td>
             </tr>
             </thead>
             <tbody>
@@ -145,7 +145,7 @@ foreach ($dt_query as $id=>$val){
         <tr>
             <td style="text-align: center; width=482px;"><b>Sub Totaal</b></td>
             <td style="text-align: center; width=50px;"><b><?php echo number_format($total_jumlah)?></b></td>
-            <td style="text-align: center; width=70px;"><b>Rp.<?php echo number_format($total_harga_barang_semua)?>.-</b></td>
+            <td style="text-align: center; width=90px;"><b>Rp.<?php echo number_format($total_harga_barang_semua)?>.-</b></td>
         </tr>
     </table>
 
@@ -158,7 +158,9 @@ foreach ($dt_query as $id=>$val){
         $item = mysqli_fetch_assoc($query_get_user);
         ?>
         <p> </p>
-        <p>Diajukan Oleh :<br><?php echo $item['jabatan']?>  </p>
+        <p>Diajukan Oleh :<br><?php if($item['jabatan']=="Operator"){
+                echo "Pengelola Persediaan Barang";
+            } ?>  </p>
         <p></p>
         <p></p>
         <!--    <b><p><u>Siti Rusdah </u><br>NIK: 198507122010012039</p></b>-->

@@ -6,7 +6,7 @@ include_once "../fungsi/fungsi.php";
 
 $id_sementara = isset($_GET['id_sementara'])? $_GET['id_sementara']:'';
 
-echo $id_sementara."::";
+//echo $id_sementara."::";
 
 $query = mysqli_query($koneksi,"select * from ((sementara inner join `user` 
 on sementara.user_id=user.id_user) 
@@ -18,10 +18,15 @@ while($dt = mysqli_fetch_array($query)){
     $nama_lengkap = $dt['nama_lengkap'];
     $jumlah = $dt['jumlah'];
     $nama_brg = $dt['nama_brg'];
+    $kode_brg = $dt['kode_brg'];
     $user_id = $dt['user_id'];
     $tgl_permintaan= $dt['tgl_permintaan'];
+
+
 }
 
+//echo $jumlah."::";
+//echo $kode_brg."::";
 //if(isset($_POST['simpan'])) {
 //    $username = $_POST['username'];
 //    $nama_lengkap = $_POST['nama_lengkap'];
@@ -54,7 +59,7 @@ while($dt = mysqli_fetch_array($query)){
         <div class="col-sm-12 col-xs-12">
             <div class="box box-primary">
                 <div class="box-header with-border">
-                    <h3 class="text-center">sCatatan Tidak Setuju</h3>
+                    <h3 class="text-center">Caatatan Tidak Setuju</h3>
                 </div>
                 <form method="post"  action="simpan_alasan_tidak_setuju_kasub_pengguna_table.php" class="form-horizontal">
                     <div class="box-body">
@@ -65,6 +70,7 @@ while($dt = mysqli_fetch_array($query)){
                                 <input class="hidden" type="text" name="unit" id="unit" value="<?php echo $nama_pemohon; ?>">
                                 <input class="hidden" type="text" name="user_id" id="user_id" value="<?php echo $user_id; ?>">
                                 <input class="hidden" type="text" name="tgl_permintaan" id="tgl_permintaan" value="<?php echo $tgl_permintaan; ?>">
+                                <input class="hidden" type="text" name="jumlah" id="jumlah" value="<?php echo $jumlah; ?>">
 
                                 <input readonly  required type="text" value="<?php echo $nama_pemohon;?>" class="form-control"
                                        name="unit" id="unit">
@@ -105,7 +111,7 @@ while($dt = mysqli_fetch_array($query)){
 
                             <!--index.php?p=detilpermintaan&unit=Undar&user_id=23&tgl_permintaan=2022-10-29-->
                             <a id="batal_tidak_setuju_kasub_pengguna" class="btn btn-danger"
-                               href="index.php?p=detilpermintaan&unit=<?php echo $nama_pemohon;?>&user_id=<?php echo $user_id;?>&tgl_permintaan=<?php echo $tgl_permintaan;?>">
+                               href="index.php?p=detilpermintaan_table&unit=<?php echo $nama_pemohon;?>&user_id=<?php echo $user_id;?>&tgl_permintaan=<?php echo $tgl_permintaan;?>">
                                         <span id="alasan_tidak_setuju" data-placement='top' data-toggle='tooltip' title='Alasan Tidak Setuju'>
                                             Batals
                                         </span>

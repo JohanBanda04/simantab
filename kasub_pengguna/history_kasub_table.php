@@ -112,7 +112,7 @@ between '$tgl_satu_bulan_lalu' AND '$sekarang' and status_acc !='Permintaan Baru
                                 <th>Nama</th>
                                 <th>User ID</th>
                                 <th>Tgl Permintaan</th>
-                                <th>Instansi</th>
+<!--                                <th>Instansi</th>-->
                                 <th>Aksi</th>
                             </tr>
                             </thead>
@@ -126,7 +126,7 @@ between '$tgl_satu_bulan_lalu' AND '$sekarang' and status_acc !='Permintaan Baru
                                             <td><?php echo $dt['unit'];?></td>
                                             <td><?php echo $dt['user_id'];?></td>
                                             <td><?php echo tanggal_indo($dt['tgl_permintaan']);?></td>
-                                            <td><?php echo $dt['instansi'];?></td>
+<!--                                            <td>--><?php //echo $dt['instansi'];?><!--</td>-->
                                             <td>
                                                 <a href="?p=detilpermintaan_history_kasubpengguna_table&unit=<?php echo $dt['unit']?>&user_id=<?php echo $dt['user_id']?>&tgl_permintaan=<?php echo $dt['tgl_permintaan'];?>">
                                                 <span data-placement="top"

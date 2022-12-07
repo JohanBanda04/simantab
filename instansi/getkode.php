@@ -6,7 +6,8 @@
 
 
 	//metode penggunaan status_acc
-	$query = mysqli_query($koneksi,"select stokbarang.sisa-(select sum(sementara.jumlah) from (sementara inner join stokbarang 
+	$query = mysqli_query($koneksi,"select stokbarang.sisa-(select sum(sementara.jumlah) 
+from (sementara inner join stokbarang 
 on sementara.kode_brg=stokbarang.kode_brg) where sementara.status_acc in ('Permintaan Baru', 'Pengajuan Kasub', 'setuju', 
 'Pengajuan Bendahara', 'Pengajuan Kasub Bendahara', 
 'Setuju Kasub Bendahara',  

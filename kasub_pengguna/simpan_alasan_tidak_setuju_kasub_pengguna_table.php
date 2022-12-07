@@ -9,8 +9,11 @@ if(isset($_POST['simpan_catatan_tidak_setuju'])){
     $unit = $_POST['unit'];
     $user_id = $_POST['user_id'];
     $tgl_permintaan = $_POST['tgl_permintaan'];
+    $jumlah = $_POST['jumlah'];
 
     $catatan_tidak_setuju_kasub_pengguna = $_POST['catatan_tidak_setuju_kasub_pengguna'];
+
+    $get_data_persedian = mysqli_query($koneksi,"");
 
 //    echo $id_sementara."::";
 //    echo $catatan_tidak_setuju_kasub_pengguna."::";
@@ -21,6 +24,8 @@ if(isset($_POST['simpan_catatan_tidak_setuju'])){
     $query_update = mysqli_query($koneksi,"update sementara set
 note_kasub_pengguna='$catatan_tidak_setuju_kasub_pengguna',status_acc='tidak_setuju'
 where id_sementara='$id_sementara'");
+
+    $query_update_stock = mysqli_query($koneksi,"");
 
 //    if($query){
 //        //index.php?p=detilpermintaan&unit=Undar&user_id=23&tgl_permintaan=2022-10-29

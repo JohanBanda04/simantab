@@ -66,7 +66,7 @@ if(isset($_GET['id_jenis'])){
                <th>Keluar</th>
                <th>Stok</th>
                <th>Keterangan</th>
-
+               <th>Operator</th>
                <th>Aksi</th>	                				
              </tr>
            </thead>
@@ -88,6 +88,7 @@ if(isset($_GET['id_jenis'])){
                 <td> <?= $row['keluar']; ?> </td>                                        
                 <td> <?= $row['sisa']; ?> </td>
                 <td> <?= $row['keterangan']; ?> </td>
+                <td> <?= $row['bendahara']; ?> </td>
 
 
                 <td>

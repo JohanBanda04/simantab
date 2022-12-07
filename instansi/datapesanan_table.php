@@ -80,7 +80,7 @@ group by tgl_permintaan desc");
         <div class="col-sm-12">
             <div class="box box-primary">
                 <div class="box-header with-border">
-                    <h3 class="text-center">iData Permintaan Barang </h3>
+                    <h3 class="text-center">Dataa Permintaan Barang </h3>
                 </div>
 
                 <!--metode menambah filter tanggal-->

@@ -31,6 +31,8 @@ if ($page=="") {
     include_once "detilpermintaan_table.php";
 }else if ($page=='alasan_tidak_setuju_table'){
     include_once "alasan_tidak_setuju_table.php";
+}else if ($page=='data_user_view_kasub_pengguna'){
+    include_once "data_user_view_kasub_pengguna.php";
 }
 
 

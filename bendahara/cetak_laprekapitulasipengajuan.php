@@ -174,7 +174,9 @@ where id_user='$_SESSION[user_id]') and username='$_SESSION[username]'");
             ?>
             <div class="kiri">
                 <p></p>
-                <p>Dicetak Oleh :<br><?php echo $dt['jabatan'];?> </p>
+                <p>Dicetak Oleh :<br><?php if($dt['jabatan']=="Operator"){
+                        echo "Pengelola Persediaan Barang";
+                    } ?> </p>
                 <p></p>
                 <p></p>
 <!--                <b><p><u>Siti Rusdah </u><br>NIK: 198507122010012039</p></b>-->
@@ -199,7 +201,9 @@ where id_user='$_SESSION[user_id]') and jabatan='Kasub Operator'");
 
             <div class="kanan">
                 <p></p>
-                <p>Disetujui Oleh :<br><?php echo $dt['jabatan'];?> </p>
+                <p>Disetujui Oleh :<br><?php if($dt['jabatan']=="Kasub Operator"){
+                    echo "Kasub Pengelola";
+                    } ?> </p>
                 <p></p>
                 <p></p>
 <!--                <b><p><u>Darsito, S.Sos </u><br>NIK: 196606051986031015</p></b>-->

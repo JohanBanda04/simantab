@@ -25,7 +25,7 @@ tgl_permintaan='$tgl_permintaan' and status_acc not IN ('Permintaan Baru','Penga
         <div class="col-sm-12">
             <div class="box box-primary">
                 <div class="box-header with-border">
-                    <h3 class="text-center">Historyi Permintaan <?php echo $unit; ?></h3><br>
+                    <h3 class="text-center">History Peermintaan <?php echo $unit; ?></h3><br>
                     <h4 class="text-center" style="font-weight: bold"><?php echo tanggal_indo($tgl_permintaan)?></h4>
                 </div>
                 <div class="box-body">
@@ -63,7 +63,11 @@ tgl_permintaan='$tgl_permintaan' and status_acc not IN ('Permintaan Baru','Penga
                                     <td> <?= $row['nama_brg']; ?> </td>
                                     <td> <?= $row['satuan']; ?> </td>
                                     <td> <?= $row['jumlah']; ?> </td>
-                                    <td> <?=$row['status_acc']?> </td>
+                                    <td> <?php if($row['status_acc']=="tidak_setuju"){
+                                            echo ucwords(str_replace("_"," ",$row['status_acc']));
+                                        } else {
+                                            echo $row['status_acc'];
+                                        } ?> </td>
 
 
 

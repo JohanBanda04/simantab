@@ -113,7 +113,8 @@ if (isset($_GET['pa'])) {
         <section class="sidebar">
             <ul class="sidebar-menu">
                 <li class="header"><h4
-                        class="text-center"><?= $_SESSION['jabatan']; ?> <?= $_SESSION['username']; ?> </h4></li>
+                        class="text-center"><?= $_SESSION['jabatan']; ?> <br>
+                        <span style="font-weight: bold"><?= $_SESSION['username']; ?></span> </h4></li>
                 <li class="treeview <?php if($_GET['pa']=='Dashboard') {?> active <?php } ?>">
                     <a href="index.php?pa=Dashboard" style="<?php if ($_GET['pa']=='Dashboard') { ?>
                             background-color: #c7fff1; opacity: 80%
@@ -159,7 +160,7 @@ if (isset($_GET['pa'])) {
                     <ul class="treeview-menu">
                         <li style="<?php if ($_GET['pas'] == 'permintaanbarang') { ?> background-color: #87b2a4 <?php } ?>">
                             <a href="index.php?p=datapermintaan_table&pas=permintaanbarang">
-                                <i class="fa fa-circle-o"></i>Permintaan Barang Table
+                                <i class="fa fa-circle-o"></i>Permintaan Barang <!--Table-->
                             </a>
                         </li>
                     </ul>
@@ -180,6 +181,16 @@ if (isset($_GET['pa'])) {
                             background-color: #c7fff1; opacity: 80%
                     <?php } ?>">
                         <i class="fa fa-dashboard"></i> <span>History <!--Table--></span>
+                    </a>
+                </li>
+
+                <!--metode ubah data user dan metode highlighted menu-->
+                <li class="treeview <?php if($_GET['pa']=='data_users_kasub_pengguna') { ?> active <?php } ?>">
+                    <a href="index.php?p=data_user_view_kasub_pengguna&pa=data_users_kasub_pengguna"
+                       style="<?php if($_GET['pa']=='data_users_kasub_pengguna') {?> background-color: #c7fff1; opacity: 80% <?php } ?>">
+                        <i class="fa fa-user-circle"></i> <span>Data User</span>
+                        <!--                        <span>Data Stok Barang</span>-->
+
                     </a>
                 </li>
 

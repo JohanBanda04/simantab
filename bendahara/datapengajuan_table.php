@@ -33,7 +33,7 @@ and !isnull(pengajuan_sementara.id_pengajuan_sementara) GROUP BY pengajuan_semen
         <div class="col-sm-12">
             <div class="box box-primary">
                 <div class="box-header with-border">
-                    <h3 class="text-center">Data Pengaajuan Barang</h3>
+                    <h3 class="text-center">Data Pengajuaan Barang</h3>
                 </div>
                 <div class="box-body">
                     <a href="index.php?p=formpengajuan_table" style="margin:10px 15px;" class="btn btn-success">

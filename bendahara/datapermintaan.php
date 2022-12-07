@@ -26,7 +26,7 @@ if(isset($_POST['tampilkan'])){
 //    echo $tanggala."::";
 //    echo $tanggalb."";
 
-
+//metode penggunaan sql query OR dan AND
     $query = mysqli_query($koneksi,"select * from  (sementara inner join permintaan on 
 sementara.id_sementara=permintaan.id_sementara) 
 where (sementara.tgl_permintaan between '$tanggala' and '$tanggalb' 

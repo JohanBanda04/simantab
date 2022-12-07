@@ -134,7 +134,7 @@ where id_subbidang='$_SESSION[subbidang_id]'");
                                             <td><?php echo $dt['unit'];?></td>
                                             <td><?php echo $dt['user_id'];?></td>
                                             <td><?php echo tanggal_indo($dt['tgl_permintaan']);?></td>
-                                            <td><?php echo $dt['instansi'];?></td>
+                                            <td><?php echo ucwords($dt['instansi']) ;?></td>
                                             <td>
                                                 <a href="?p=detilpermintaan_table&unit=<?php echo $dt['unit']?>&user_id=<?php echo $dt['user_id']?>&tgl_permintaan=<?php echo $dt['tgl_permintaan'];?>">
                                                                                 <span data-placement='top'
@@ -166,7 +166,7 @@ where id_subbidang='$_SESSION[subbidang_id]'");
             <!--            <a style="font-weight: bold" href="?p=history_permintaan_barang&pa=history_pengguna">-->
             <!--                History-->
             <!--            </a>-->
-            <a style="font-weight: bold" href="index.php?p=history_kasub&pa=history_kasub_pengguna">
+            <a style="font-weight: bold" href="index.php?p=history_kasub_table&pa=history_kasub_pengguna">
                 History
             </a>
     </span>

@@ -96,7 +96,7 @@ $tanggalb = $_POST['tanggalb'];
                 <td style="text-align: center; "><b>Tanggal Keluar</b></td>
                 <td style="text-align: center; "><b>Nama </b></td>
                 <td style="text-align: center; "><b>Subbidang </b></td>
-                <td style="text-align: center; "><b>kKode Barang</b></td>
+                <td style="text-align: center; "><b>Kode Barang</b></td>
                 <td style="text-align: center; "><b>Nama Barang</b></td>
                 <td style="text-align: center; "><b>Satuan</b></td>
                 <td style="text-align: center; "><b>Jumlah</b></td>
@@ -123,7 +123,7 @@ and permintaan.`status`='1' order by pengeluaran.tgl_keluar DESC");
                 <tr>
                     <td style="text-align: center; width=10px; "><?php echo $i; ?></td>
                     <td style="text-align: center; width=70px; font-size: 12px;"><?php echo date('d/m/Y', strtotime($data['tgl_keluar'])); ?></td>
-                    <td style="text-align: left; width=70px; font-size: 12px;"><?php echo $data['unit']; ?></td>
+                    <td style="text-align: center; width=70px; font-size: 12px;"><?php echo $data['unit']; ?></td>
 
                     <?php
                         $query_get_subbidang_nama = mysqli_query($koneksi,"select * from subbidang where id_subbidang='$data[id_subbidang]'");
@@ -135,11 +135,11 @@ and permintaan.`status`='1' order by pengeluaran.tgl_keluar DESC");
                             echo "gagal get_subbidang_nama";
                         }
                     ?>
-                    <td style="text-align: left; width=100px; font-size: 12px;"><?php echo $item['nama_subbidang']; ?></td>
+                    <td style="text-align: center; width=100px; font-size: 12px;"><?php echo $item['nama_subbidang']; ?></td>
                     <td style="text-align: center; width=70px; font-size: 12px;"><?php echo $data['kode_brg']; ?></td>
 
                     <?php $nama_brg = strtolower($data['nama_brg'])?>
-                    <td style="text-align: left; width=100px; font-size: 12px;"><?php echo ucwords($nama_brg," "); ?></td>
+                    <td style="text-align: center; width=100px; font-size: 12px;"><?php echo ucwords($nama_brg," "); ?></td>
 
                     <?php $satuan_brg = strtolower($data['satuan'])?>
                     <td style="text-align: center; width=40px; font-size: 12px;"><?php echo ucwords($satuan_brg," "); ?></td>
@@ -155,7 +155,7 @@ and permintaan.`status`='1' order by pengeluaran.tgl_keluar DESC");
         </table>
         <table class="tabel2">
             <tr>
-                <td style="text-align: center; width=621px;"><b>Total Barang</b></td>
+                <td style="text-align: center; width=614px;"><b>Total Barang</b></td>
 
 
                 <td style="text-align: center; width=34px;"><b><?= $total = $total; ?></b></td>
@@ -182,7 +182,9 @@ and permintaan.`status`='1' order by pengeluaran.tgl_keluar DESC");
             }
         ?>
         <br>
-        <p>Dicetak Oleh :<br><?php echo $it['jabatan'];?></p>
+        <p>Dicetak Oleh :<br><?php if($it['jabatan']=="Operator"){
+            echo "Pengelola Persediaan Barang";
+            } ?></p>
         <br>
         <br>
         <br>
@@ -194,7 +196,9 @@ and permintaan.`status`='1' order by pengeluaran.tgl_keluar DESC");
             $query_get_kasub_operator = mysqli_query($koneksi,"select * from user where jabatan='Kasub Operator'");
             $item = mysqli_fetch_assoc($query_get_kasub_operator);
         ?>
-        <p>Disetujui Oleh :<br><?php echo $item['jabatan']?>; </p>
+        <p>Disetujui Oleh :<br><?php if($item['jabatan']=="Kasub Operator"){
+                echo "Kasub Pengelola";
+            } ?> </p>
         <br>
         <br>
         <br>

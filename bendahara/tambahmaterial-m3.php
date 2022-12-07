@@ -32,7 +32,8 @@ if ($kode_brg) {
                         <div class="form-group ">
                             <label for="nama_brg" class="col-sm-offset-1 col-sm-3 control-label">Kode Barang</label>
                             <div class="col-sm-4">
-                                <input type="text" value="<?= $kode_otomatis; ?>" class="form-control" name="kode_brg" readonly>
+<!--                                <input type="text" value="--><?//= $kode_otomatis; ?><!--" class="form-control" name="kode_brg" readonly>-->
+                                <input type="text" value="" class="form-control" name="kode_brg" >
                             </div>
                         </div>
                         <div class="form-group">

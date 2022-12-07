@@ -39,7 +39,7 @@ if(isset($_GET['id_jenis'])){
     <div class="col-sm-12">
       <div class="box box-primary">
         <div class="box-header with-border">
-          <h3 class="text-center">Olah Data Stok Barang <span style="font-weight: bold"><?php echo $nama_kategori;?></span></h3>
+          <h3 class="text-center">Olah Data Stook Barang <span style="font-weight: bold"><?php echo $nama_kategori;?></span></h3>
         </div>                
         <div class="box-body">
           <div class="row">

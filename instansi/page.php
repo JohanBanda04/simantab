@@ -47,6 +47,8 @@
         include_once "detil_table.php";
     }else if($page == "formpesan_table"){
         include_once "formpesan_table.php";
+    }else if($page == "data_user_view"){
+        include_once "data_user_view.php";
     }
 
 

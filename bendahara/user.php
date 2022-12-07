@@ -24,7 +24,7 @@
 		<div class="col-sm-12">
 			 <div class="box box-primary">
                 <div class="box-header with-border">
-                    <h3 class="text-center">oOlah Data User</h3>
+                    <h3 class="text-center">Olah Dataa User</h3>
                 </div>                
                 <div class="box-body">
                <div class="row">

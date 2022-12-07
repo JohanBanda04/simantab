@@ -160,7 +160,8 @@ if(isset($_GET['pa'])){
     <aside class="main-sidebar">
         <section class="sidebar">
             <ul class="sidebar-menu">
-                <li class="header"><h4 class="text-center"><?=  $_SESSION['jabatan']; ?> <?=  $_SESSION['username']; ?></h4></li>
+                <li class="header"><h4 class="text-center"><?php echo  $_SESSION['jabatan']; ?><br>
+                        <span style="font-weight: bold"><?php echo ucwords($_SESSION['username']); ?></span></h4></li>
                 <li class="<?= $dashboard; ?> treeview ">
                     <!--          <li><a href="index.php?p=cetakpesanan"><i class="fa fa-print"></i> Cetak BPP</a></li>-->
                     <a href="index.php?pa=Dashboard"
@@ -273,6 +274,16 @@ if(isset($_GET['pa'])){
                     <a href="index.php?p=cetak_bpp_baru_table_v2&pa=Cetak"
                        style="<?php if($cetakbpp=="active"){?> background-color: #c7fff1; opacity: 80% <?php }?>">
                         <i class="fa fa-print"></i> Cetak BPP <!--Table V2-->
+                    </a>
+                </li>
+
+                <!--metode ubah data user-->
+                <li class="treeview <?php if($_GET['pa']=='data_users') { ?> active <?php } ?>">
+                    <a href="index.php?p=data_user_view&pa=data_users"
+                       style="<?php if($_GET['pa']=='data_users') {?> background-color: #c7fff1; opacity: 80% <?php } ?>">
+                        <i class="fa fa-user-circle"></i> <span>Data User</span>
+                        <!--                        <span>Data Stok Barang</span>-->
+
                     </a>
                 </li>
                 <li><a href="../logout.php">

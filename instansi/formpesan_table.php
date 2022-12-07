@@ -12,9 +12,9 @@ $error = "";
             <!--Kolom Sebelah Kiri-->
             <div class="box box-primary">
                 <div class="box-header with-border">
-                    <h3 class="text-center">Foorm Permintaan Barang</h3>
+                    <h3 class="text-center">Form Peermintaan Barang</h3>
                 </div>
-                <form method="post" id="tes" action="add-proses.php" class="form-horizontal">
+                <form method="post" id="tes" action="add-proses_table.php" class="form-horizontal">
                     <div class="box-body">
                         <div class="form-group ">
                             <label for="nama_brg" class="a col-sm-3 control-label">Nama</label>
@@ -183,7 +183,7 @@ AND status_acc='Permintaan Baru'");
                     <a class="btn btn-success"
                        style="background-color: #1b860c"
                        href="ajukan_via_kasub.php?unit=<?php echo $nama_unit ?>&tgl_minta=<?php echo $tgl_minta ?>">
-                        PPemberitahuan Kasub
+                        Pemberitahuan Kasub
                     </a>
 
                 </div>

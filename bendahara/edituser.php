@@ -5,7 +5,7 @@
 	if (isset($_GET['id'])) {
 		$id = $_GET['id'];
 
-		echo $id;
+//		echo $id;
 		$query = mysqli_query($koneksi, "SELECT * FROM user WHERE id_user = $id ");
 		if (mysqli_num_rows($query)) {
 			while($row2 = mysqli_fetch_assoc($query)):
@@ -50,7 +50,7 @@
                         </div>
 
                         <div class="form-group ">
-                            <label for="paswword"class="col-sm-offset-1 col-sm-3 control-label">Password</label>
+                            <label for="paswword"class="col-sm-offset-1 col-sm-3 control-label">Passwordd</label>
                             <div class="col-sm-4">
                                 <input required value="<?php echo $row2['password'];?>" type="password" class="form-control" name="password">
                             </div>

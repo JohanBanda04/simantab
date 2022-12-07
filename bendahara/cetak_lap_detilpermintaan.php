@@ -147,7 +147,7 @@ subbidang on user.subbidang_id=subbidang.id_subbidang) where user.id_user='$user
                 <td style="text-align: left; "><b>: <?= $itm['nama_lengkap'] ?></b></td>
             </tr>
             <tr>
-                <td style="text-align: left; width=80px;  "><b>Subbid </b></td>
+                <td style="text-align: left; width=80px;  "><b>Subbag </b></td>
                 <td style="text-align: left; "><b>: <?= $itm['nama_subbidang'] ?></b></td>
             </tr>
 
@@ -158,7 +158,7 @@ subbidang on user.subbidang_id=subbidang.id_subbidang) where user.id_user='$user
             <tr>
                 <td style="text-align: center; "><b>No.</b></td>
                 <td style="text-align: center; "><b>Tanggal Keluar</b></td>
-                <td style="text-align: center; "><b>Bendahara</b></td>
+                <td style="text-align: center; "><b>Pengelola</b></td>
 
                 <td style="text-align: center; "><b>Kode Barang</b></td>
                 <td style="text-align: center; "><b>Nama Barang</b></td>
@@ -263,7 +263,9 @@ subbidang_id='$result[subbidang_id]' and jabatan='Kasub Pengguna'");
             echo "gagal get_kasub_operator";
         }
         ?>
-        <p>Disetujui Oleh :<br><?php echo $dt_res['jabatan'];?> </p>
+        <p>Disetujui Oleh :<br><?php if($dt_res['jabatan']=="Kasub Operator"){
+            echo "Kasub Pengelola";
+            }?> </p>
         <br>
         <br>
         <br>

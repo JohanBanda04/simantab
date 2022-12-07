@@ -91,8 +91,10 @@ div.kiri {
         <td style="text-align: left; "><b>: <?= ($unit);?></b></td>       
       </tr>
       <tr>
-        <td style="text-align: left; width=80px;  "><b>Role </b></td>
-        <td style="text-align: left; "><b>: <?= $data['jabatan'] ?></b></td>       
+        <td style="text-align: left; width=80px;  "><b>Level </b></td>
+        <td style="text-align: left; "><b>: <?php if ($data['jabatan']=="Operator"){
+                echo "Pengelola Persediaan Barang";
+                } ?></b></td>
       </tr>
 
     </table>
@@ -212,7 +214,9 @@ BETWEEN '$tanggala' and '$tanggalb' ");
         $item = mysqli_fetch_assoc($query_get_user);
         ?>
         <p> </p>
-        <p>Diajukan Oleh :<br><?php echo $item['jabatan']?>  </p>
+        <p>Diajukan Oleh :<br><?php if($item['jabatan']=="Operator"){
+            echo "Pengelola Persediaan Barang";
+            } ?>  </p>
         <p></p>
         <p></p>
         <!--    <b><p><u>Siti Rusdah </u><br>NIK: 198507122010012039</p></b>-->

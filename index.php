@@ -135,8 +135,10 @@ FROM user WHERE username='$username' && password='$password'";
                             kasub_pengguna kasub_operator operator pengguna
 							<option value="pilih_level">[Pilih Level]</option>
 							<option value="kasub_pengguna">Kasub Pengguna</option>
-							<option value="kasub_operator">Kasub Operator</option>
-							<option value="operator">Operator</option>
+<!--							<option value="kasub_operator">Kasub Operator</option>-->
+							<option value="kasub_operator">Kasub Pengelola</option>
+<!--							<option value="operator">Operator</option>-->
+							<option value="operator">Pengelola</option>
 							<option value="pengguna">Pengguna</option>
 <!--                            --><?php
 //                                $query = mysqli_query($koneksi,"select * from `level` group by nama_level");

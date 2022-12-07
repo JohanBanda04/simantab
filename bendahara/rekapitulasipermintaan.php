@@ -6,7 +6,7 @@
         <div class="col-sm-12">
            <div class="box box-primary">
             <div class="box-header with-border">
-                <h3 class="text-left">rRekapitulasi Permintaan Barang</h3>
+                <h3 class="text-left">Rekapitulasi Permintaan Baraang</h3>
             </div>  
 
 

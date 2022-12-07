@@ -12,15 +12,41 @@ if(isset($_POST['simpan'])) {
 
 		//die($stok);
 
-	$query = "INSERT into stokbarang (kode_brg, id_jenis, nama_brg, hargabarang, satuan) VALUES 
-	('$kode_brg', '$id_jenis', '$nama_brg','$hargabarang', '$satuan');
+//    echo $kode_brg . "::";
+//    echo $id_jenis . "::";
+//    echo $nama_brg . "::";
+//    echo $hargabarang . "::";
+//    echo $satuan . "::";
 
-	";
-	$hasil = mysqli_query($koneksi, $query);
-	if ($hasil) {
-		echo '<script language="javascript">alert("Data Berhasil Disimpan !!!"); document.location="index.php?p=tambahmaterial-m2";</script>';
-	} else {
-		die("ada kesalahan : " . mysqli_error($koneksi));
-	}
+    $query_cek = mysqli_query($koneksi,"select * from stokbarang where kode_brg='$kode_brg' or nama_brg='$nama_brg'");
+    if(mysqli_num_rows($query_cek) > 0){
+//        echo "Kode Barang Sudah Ada";
+//        index.php?p=material-m2&id_jenis=2&pas=alatkebersihan
+        echo "<script>window.alert('Maaf Kode Barang Sudah Ada')
+		window.location='index.php?p=material-m2&id_jenis=2&pas=alatkebersihan'</script>";
+    } else if(mysqli_num_rows($query_cek)<=0){
+        $query_insert_kode_brg = mysqli_query($koneksi,"INSERT into stokbarang
+(kode_brg, id_jenis, nama_brg, hargabarang, satuan)
+VALUES 	('$kode_brg', '$id_jenis', '$nama_brg','$hargabarang','$satuan')");
+//        echo "Kode Barang Belum Ada";
+        if($query_insert_kode_brg){
+            echo "<script>window.alert('Kode Barang Berhasil Disimpan')
+		window.location='index.php?p=material-m2&id_jenis=2&pas=alatkebersihan'</script>";
+        } else {
+            echo "gagal euy cuy" . mysqli_error($koneksi);
+        }
+    }
+
+//	$query = "INSERT into stokbarang (kode_brg, id_jenis, nama_brg, hargabarang, satuan) VALUES
+//	('$kode_brg', '$id_jenis', '$nama_brg','$hargabarang', '$satuan');
+//
+//	";
+//	$hasil = mysqli_query($koneksi, $query);
+//	if ($hasil) {
+//		echo '<script language="javascript">alert("Data Berhasil Disimpan !!!");
+//document.location="index.php?p=tambahmaterial-m2";</script>';
+//	} else {
+//		die("ada kesalahan : " . mysqli_error($koneksi));
+//	}
 
 }

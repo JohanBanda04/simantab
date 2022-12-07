@@ -16,7 +16,7 @@ if (isset($_GET['id'])) {
                     <div class="col-sm-8 col-sm-offset-2 col-xs-12">
                         <div class="box box-primary">
                             <div class="box-header with-border">
-                                <h3 class="text-center">Update Data Stok Barang</h3>
+                                <h3 class="text-center">Update Daata Stok Barang</h3>
                             </div>
                             <form method="post" action="edit-proses-m1.php" class="form-horizontal">
                                 <div class="box-body">

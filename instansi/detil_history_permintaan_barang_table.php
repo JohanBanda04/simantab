@@ -40,7 +40,7 @@ and user_id='$user_id' and tgl_permintaan='$tgl_permintaan' and status_acc not i
                             <thead>
                             <tr>
                                 <th>No</th>
-                                <th>Bendahara</th>
+                                <th>Pengelola</th>
                                 <th>Id Sementara</th>
                                 <!--                                <th>Kode Barang</th>-->
                                 <th>Nama Barang</th>
@@ -67,7 +67,7 @@ and user_id='$user_id' and tgl_permintaan='$tgl_permintaan' and status_acc not i
                                     <tr>
                                     <td> <?= $no; ?> </td>
                                     <?php if($row['bendahara']=="" || $row['bendahara']==null){ ?>
-                                        <td> Belum Diproses Bendahara </td>
+                                        <td> Belum Diproses Pengelola </td>
                                     <?php } else { ?>
                                         <td> <?= $row['bendahara']; ?> </td>
 
@@ -141,7 +141,11 @@ and user_id='$user_id' and tgl_permintaan='$tgl_permintaan' and status_acc not i
                                         if($row['status_acc']=='Penerimaan Barang Dari Bendahara') { ?>
                                             <td style="color: red; font-weight: bold"> Barang Sudah Diterima </td>
                                         <?php } else { ?>
-                                            <td style="color: red; font-weight: bold"> <?=$row['status_acc']?> </td>
+                                            <td style="color: red; font-weight: bold"> <?php if ($row['status_acc']=="tidak_setuju"){
+                                                echo ucwords(str_replace("_"," ",$row['status_acc']));
+                                                } else {
+                                                 echo $row['status_acc'];
+                                                } ?> </td>
                                         <?php }
                                         ?>
                                         <!--                                        <td style="color: red; font-weight: bold"> --><?//=$row['status_acc']?><!-- </td>-->

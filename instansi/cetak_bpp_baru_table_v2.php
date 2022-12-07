@@ -121,7 +121,7 @@ and permintaan.`status`='1' group by sementara.tgl_permintaan DESC, sementara.be
                             <tr>
                                 <th>No</th>
                                 <th>Nama</th>
-                                <th>Bendahara</th>
+                                <th>Pengelola</th>
                                 <th>Tgl Permintaan</th>
                                 <th>Aksi</th>
                             </tr>

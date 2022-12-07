@@ -29,7 +29,7 @@ while($dt = mysqli_fetch_array($get_data_untuk_detail)){
         <div class="col-sm-12 col-xs-12">
             <div class="box box-primary">
                 <div class="box-header with-border">
-                    <h3 class="text-center">Detail Informasi Penyerahaan Barang</h3>
+                    <h3 class="text-center">Details Informasi Penyerahaan Barang</h3>
                 </div>
                 <form method="post"  action="uploadbuktipenyerahan_table.php"  class="form-horizontal" enctype="multipart/form-data">
                     <input class="hidden" type="text" name="id_sementara" value="<?php echo $id_sementara; ?>">

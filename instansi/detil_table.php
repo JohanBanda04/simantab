@@ -37,7 +37,7 @@ if(isset($_GET['aksi']) && isset($_GET['id'])) {
         <div class="col-sm-12">
             <div class="box box-primary">
                 <div class="box-header with-border">
-                    <h3 class="text-center">sdData Permintaan Barang Tanggal <strong><?php echo tanggal_indo($tgl); ?></strong></h3>
+                    <h3 class="text-center">Daata Permintaan Barang Tanggal <strong><?php echo tanggal_indo($tgl); ?></strong></h3>
                 </div>
                 <div class="box-body">
                     <a href="index.php?p=datapesanan_table" style="margin:10px;background-color: #486055" class="btn btn-success"><i class='fa fa-backward'>  Kembali</i></a>
@@ -95,13 +95,13 @@ if(isset($_GET['aksi']) && isset($_GET['id'])) {
                                                                type="button" disabled id=""
                                                                name=""
                                                                class="btn btn-primary col-sm-offset-3 disabled"
-                                                               value="Ajukan Bendahara">
+                                                               value="Ajukan Pengelola">
                                                     <?php } else if($row['status_acc']=='setuju') {?>
                                                         <input onclick="return confirm('Kirim Permintaan Barang ke Bendahara?')"
                                                                type="submit" id="permintaan_ke_bendahara"
                                                                name="permintaan_ke_bendahara"
                                                                class="btn btn-primary col-sm-offset-3"
-                                                               value="Ajukan Bendahara">
+                                                               value="Ajukan Pengelola">
                                                     <?php } ?>
 
                                                 </center>

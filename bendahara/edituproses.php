@@ -23,6 +23,7 @@ if(isset($_POST['update'])) {
         $password = $_POST['password'];
     } else if($_POST['password']!=$password_old){
         $password = md5($_POST['password']);
+
     }
     $level = $_POST['level'];
     $jabatan = $_POST['jabatan'];
@@ -36,10 +37,11 @@ if(isset($_POST['update'])) {
 username='$username', nama_lengkap='$nama_lengkap',nik='$nip',
 password='$password',level='$level', jabatan='$jabatan',subbidang_id='$subbidang_id',
 email='$email'
-WHERE id_user ='$id' ");
+WHERE id_user ='$id'");
 
 	if ($query) {
-		echo '<script language="javascript">alert("Data Berhasil Di Ubah !!!"); document.location="index.php?p=user";</script>';
+		echo '<script language="javascript">alert("Data Berhasil Di Ubah !!!"); 
+        document.location="index.php?p=user";</script>';
 	} else {
 		echo 'error' . mysqli_error($koneksi);
 	}
