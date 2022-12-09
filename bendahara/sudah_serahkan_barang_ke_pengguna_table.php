@@ -43,7 +43,7 @@ while($dt = mysqli_fetch_array($get_data_untuk_detail)){
                             <label for="username" class="col-sm-offset-1 col-sm-3 control-label">Tgl Pengajuan</label>
 
                             <div class="col-sm-4">
-                                <input readonly="readonly"  required type="text"  class="form-control" value="<?php echo $tgl_permintaan?>">
+                                <input readonly="readonly"  required type="text"  class="form-control" value="<?php echo tanggal_indo($tgl_permintaan); ?>">
                             </div>
                         </div>
                         <div class="form-group ">

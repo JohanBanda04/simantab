@@ -302,7 +302,7 @@ if(isset($_GET['pa'])){
     </div>
 
     <footer class="main-footer">
-        <marquee hspace="40" width="full-width">Setelah permintaan di konfirmasi oleh Bendahara, Instansi ybs harap segera langsung  dengan membawa Bukti Permintaan yang telah disahkan oleh Kepala Intansi.</marquee>
+        <marquee hspace="40" width="full-width">Setelah permintaan di konfirmasi oleh Pengelola Persediaan Barang, Pemohon Brg ybs harap segera langsung  dengan membawa Bukti Permintaan yang telah disahkan oleh Kasub.</marquee>
 
     </footer>
 

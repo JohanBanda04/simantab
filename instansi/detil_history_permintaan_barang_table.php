@@ -11,7 +11,15 @@ if(isset($_GET['unit']) && isset($_GET['user_id']) && isset($_GET['tgl_permintaa
 sementara.kode_brg=stokbarang.kode_brg) where unit='$unit' and user_id='$user_id' and 
 tgl_permintaan='$tgl_permintaan' and status_acc not IN ('Permintaan Baru','Pengajuan Kasub')");
 
-    $query = mysqli_query($koneksi,"select * from (sementara inner join stokbarang 
+    $query_bk_1 = mysqli_query($koneksi,"select * from (sementara inner join stokbarang 
+on sementara.kode_brg=stokbarang.kode_brg) where unit='$unit' 
+and user_id='$user_id' and tgl_permintaan='$tgl_permintaan' and status_acc not in
+('Permintaan Baru','Pengajuan Kasub','setuju')");
+
+    $query = mysqli_query($koneksi,"select sementara.bendahara,sementara.bendahara_id,sementara.id_sementara
+,stokbarang.nama_brg,stokbarang.satuan,sementara.jumlah,sementara.note_kasub_pengguna,sementara.note_bendahara,
+sementara.status_acc
+from (sementara inner join stokbarang 
 on sementara.kode_brg=stokbarang.kode_brg) where unit='$unit' 
 and user_id='$user_id' and tgl_permintaan='$tgl_permintaan' and status_acc not in
 ('Permintaan Baru','Pengajuan Kasub','setuju')");
@@ -66,12 +74,14 @@ and user_id='$user_id' and tgl_permintaan='$tgl_permintaan' and status_acc not i
                                     <!--jika belum disetujui-->
                                     <tr>
                                     <td> <?= $no; ?> </td>
-                                    <?php if($row['bendahara']=="" || $row['bendahara']==null){ ?>
-                                        <td> Belum Diproses Pengelola </td>
-                                    <?php } else { ?>
-                                        <td> <?= $row['bendahara']; ?> </td>
+                                    <td> <?= $row['bendahara']; ?> </td>
 
-                                    <?php } ?>
+<!--                                    --><?php //if($row['bendahara']=="" || $row['bendahara']==null){ ?>
+<!--                                        <td> --><?php //echo $row['bendahara'];?><!-- </td>-->
+<!--                                    --><?php //} else { ?>
+<!--                                        <td> --><?//= $row['bendahara']; ?><!-- </td>-->
+<!---->
+<!--                                    --><?php //} ?>
                                     <td> <?= $row['id_sementara']; ?> </td>
                                     <!--                                    <td> --><?//= $row['kode_brg']; ?><!-- </td>-->
                                     <td> <?= $row['nama_brg']; ?> </td>

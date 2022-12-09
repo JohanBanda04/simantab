@@ -2,22 +2,21 @@
 include "../fungsi/koneksi.php";
 include "../fungsi/fungsi.php";
 
-if(isset($_GET['unit']) && isset($_GET['user_id']) && isset($_GET['tgl_permintaan'])){
+if (isset($_GET['unit']) && isset($_GET['user_id']) && isset($_GET['tgl_permintaan'])) {
     $unit = $_GET['unit'];
     $user_id = $_GET['user_id'];
     $tgl_permintaan = $_GET['tgl_permintaan'];
 
-    $query_old_1 = mysqli_query($koneksi,"select * from (sementara inner join stokbarang on 
-sementara.kode_brg=stokbarang.kode_brg) where unit='$unit' and user_id='$user_id' and 
-tgl_permintaan='$tgl_permintaan' and status_acc not in ('Permintaan Baru','Pengajuan Kasub')");
-
-    $query = mysqli_query($koneksi,"select * from (sementara inner join stokbarang on 
-sementara.kode_brg=stokbarang.kode_brg) where unit='$unit' and user_id='$user_id' and 
-tgl_permintaan='$tgl_permintaan' and status_acc in ('Setuju Kasub Bendahara','Tidak Setuju Kasub Bendahara',
+    //metode saat beberapa field query tidak tampil, karena ada multiple column yang kembar, dan column kembar yg
+    //terakhir bernilai null
+    $query = mysqli_query($koneksi, "select sementara.bendahara, sementara.bendahara_id,sementara.id_sementara
+,sementara.kode_brg,stokbarang.nama_brg,stokbarang.satuan,sementara.jumlah,sementara.status_acc
+from (sementara inner join stokbarang on 
+sementara.kode_brg=stokbarang.kode_brg) where unit='$_GET[unit]' and user_id='$_GET[user_id]' and 
+tgl_permintaan='$_GET[tgl_permintaan]' and status_acc in ('Setuju Kasub Bendahara','Tidak Setuju Kasub Bendahara',
 'Penyerahan Barang Ke Pengguna','Penerimaan Barang Dari Bendahara','Selesai')");
 
 }
-
 
 
 ?>
@@ -30,19 +29,21 @@ tgl_permintaan='$tgl_permintaan' and status_acc in ('Setuju Kasub Bendahara','Ti
             <div class="box box-primary">
                 <div class="box-header with-border">
                     <h3 class="text-center">History Peermintaan <?php echo $unit; ?></h3><br>
-                    <h4 class="text-center"><?php echo tanggal_indo($tgl_permintaan)?></h4>
+                    <h4 class="text-center"><?php echo tanggal_indo($tgl_permintaan) ?></h4>
                 </div>
                 <div class="box-body">
                     <!--index.php?p=history_kasub_operator&pa=history_kasub_operator-->
                     <!--index.php?p=history_kasub_operator&pa=history_kasub_operator-->
-                    <a href="index.php?p=history_kasub_operator_table&pa=history_kasub_operator" style="margin:10px;" class="btn btn-success"><i
-                            class='fa fa-backward'> Kembali</i></a>
+                    <a href="index.php?p=history_kasub_operator_table&pa=history_kasub_operator" style="margin:10px;"
+                       class="btn btn-success"><i
+                                class='fa fa-backward'> Kembali</i></a>
                     <div class="table-responsive">
-                        <table class="table text-center" id="detilpermintaan_history_kasuboperator_table_kasub_operator">
+                        <table class="table text-center"
+                               id="detilpermintaan_history_kasuboperator_table_kasub_operator">
                             <thead>
                             <tr>
                                 <th>No</th>
-                                <th>Bendahara</th>
+                                <th>Pengelola</th>
                                 <th>Id Sementara</th>
                                 <th>Kode Barang</th>
                                 <th>Nama Barang</th>
@@ -54,33 +55,35 @@ tgl_permintaan='$tgl_permintaan' and status_acc in ('Setuju Kasub Bendahara','Ti
 
 
                             <tbody>
-                            <tr>
-                                <?php
-                                $no = 1;
-                                if (mysqli_num_rows($query)) {
+                            <!--<tr>-->
+                            <?php
+                            $no = 1;
+                            if (mysqli_num_rows($query)) {
                                 while ($row = mysqli_fetch_assoc($query)):
 
+//                                    var_dump($row);
+                                    if ($row['status_acc'] != null || $row['status_acc']=='') { ?>
+                                    <tr>
+                                        <!--jika belum disetujui-->
+                                        <td> <?= $no; ?> </td>
+                                        <td> <?php echo $row['bendahara']; ?> </td>
+                                        <td> <?php echo $row['id_sementara']; ?> </td>
+                                        <td> <?= $row['kode_brg']; ?> </td>
+                                        <td> <?= $row['nama_brg']; ?> </td>
+                                        <td> <?= $row['satuan']; ?> </td>
+                                        <td> <?= $row['jumlah']; ?> </td>
+                                        <td style="font-weight: bold"> <?= $row['status_acc'] ?> </td>
 
-                                if($row['status_acc']!=null){?>
-                                    <!--jika belum disetujui-->
-                                    <td> <?= $no; ?> </td>
-                                    <td> <?= $row['bendahara']; ?> </td>
-                                    <td> <?= $row['id_sementara']; ?> </td>
-                                    <td> <?= $row['kode_brg']; ?> </td>
-                                    <td> <?= $row['nama_brg']; ?> </td>
-                                    <td> <?= $row['satuan']; ?> </td>
-                                    <td> <?= $row['jumlah']; ?> </td>
-                                    <td> <?=$row['status_acc']?> </td>
 
+                                        <?php
+                                    }
+                                    ?>
 
+                                    </tr>
 
-                                <?php } ?>
+                                    <?php $no++;
 
-                            </tr>
-
-                            <?php $no++;
-
-                            endwhile;
+                                endwhile;
                             } else {
                                 echo "<tr><td colspan=9>Tidak ada permintaan material teknik.</td></tr>";
                             } ?>
@@ -103,8 +106,8 @@ tgl_permintaan='$tgl_permintaan' and status_acc in ('Setuju Kasub Bendahara','Ti
                             }
 
                             function klikLah(id, btn) {
-                                const buttons  = document.getElementById('a_setujui');
-                                const sembunyi  = document.getElementById('sembunyi');
+                                const buttons = document.getElementById('a_setujui');
+                                const sembunyi = document.getElementById('sembunyi');
                                 document.getElementById(id).style.display = 'block';
                                 // hide the lorem ipsum text
                                 // document.getElementById(text).style.display = 'none';
@@ -121,11 +124,11 @@ tgl_permintaan='$tgl_permintaan' and status_acc in ('Setuju Kasub Bendahara','Ti
         </div>
     </div>
     <script type="text/javascript" !src="">
-        hiddenTidakDisetujui=function(id){
+        hiddenTidakDisetujui = function (id) {
             $(this).css('visibility', 'hidden');
             alert(id);
         };
-        kirimNote=function (id) {
+        kirimNote = function (id) {
             alert(id);
         };
     </script>

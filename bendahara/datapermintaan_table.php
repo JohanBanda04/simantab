@@ -187,6 +187,8 @@ group by sementara.tgl_permintaan DESC,sementara.unit");
 <!--                                            <td>--><?php //echo $dt['user_id']; ?><!--</td>-->
                                             <td><?php if($dt['status_acc']=='Pengajuan Kasub Bendahara'){
                                                     echo "Pengajuan Kasub Pengelola";
+                                                } else if($dt['status_acc']=="Setuju Kasub Bendahara"){
+                                                    echo "Setuju Kasub Pengelola";
                                                 } else {
                                                     echo $dt['status_acc'];
                                                 } ?></td>

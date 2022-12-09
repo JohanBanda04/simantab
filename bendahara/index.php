@@ -247,7 +247,7 @@ if (isset($_GET['pa'])) {
                     <ul class="treeview-menu">
                         <li style="<?php if ($_GET['pas'] == 'datapengajuan') { ?> background-color: #87b2a4 <?php } ?>">
                             <a href="index.php?p=datapengajuan_table&pas=datapengajuan">
-                                <i class="fa fa-circle-o"></i>Data Pengajuan Barang Table
+                                <i class="fa fa-circle-o"></i>Data Pengajuan Barang <!--Table-->
                             </a>
                         </li>
                     </ul>
@@ -314,7 +314,7 @@ if (isset($_GET['pa'])) {
     </div>
 
     <footer class="main-footer">
-        <marquee hspace="40" width="full-width">Bendahara mengolah data user dan data stok Barang.</marquee>
+        <marquee hspace="40" width="full-width">Pengelola Persediaan Barang Mengelola Data User dan Data Stok Barang.</marquee>
         <!--        <strong>Copyright &copy; Komputerisasi Akuntansi Mercusuar 2020 </strong>-->
     </footer>
 

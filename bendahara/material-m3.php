@@ -39,7 +39,7 @@ if(isset($_GET['id_jenis'])){
     <div class="col-sm-12">
       <div class="box box-primary">
         <div class="box-header with-border">
-          <h3 class="text-center">Olah Data Stook Barang <span style="font-weight: bold"><?php echo $nama_kategori;?></span></h3>
+          <h3 class="text-center"> Olah Data Stook Barang <span style="font-weight: bold"><?php echo $nama_kategori;?></span></h3>
         </div>                
         <div class="box-body">
           <div class="row">
@@ -54,7 +54,7 @@ if(isset($_GET['id_jenis'])){
           </div>                        
           <div class="table-responsive">
             <table class="table text-center" id="material">
-             <thead  > 
+             <thead >
               <tr>
                <th>No</th>	  
 
@@ -66,7 +66,7 @@ if(isset($_GET['id_jenis'])){
                <th>Keluar</th>
                <th>Stok</th>
                <th>Keterangan</th>
-
+               <th>Operator</th>
                <th>Aksi</th>	                				
              </tr>
            </thead>
@@ -88,6 +88,7 @@ if(isset($_GET['id_jenis'])){
                 <td> <?= $row['keluar']; ?> </td>                                        
                 <td> <?= $row['sisa']; ?> </td>
                 <td> <?= $row['keterangan']; ?> </td>
+                <td> <?= $row['bendahara']; ?> </td>
 
 
                 <td>

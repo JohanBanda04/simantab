@@ -202,7 +202,7 @@ if (isset($_GET['pa'])) {
     </div>
 
     <footer class="main-footer">
-        <marquee hspace="40" width="full-width">Kasub Pengguna Memberi Persetujuan / Tidak terhadap Permintaan Barang Staff terkait</marquee>
+        <marquee hspace="40" width="full-width">Kasub Pengelola Persediaan Barang Memberi Persetujuan / Tidak terhadap Permintaan Barang dari Pengelola Persediaan Barang </marquee>
         <!--        <strong>Copyright &copy; Komputerisasi Akuntansi Mercusuar 2020 </strong>-->
     </footer>
 
