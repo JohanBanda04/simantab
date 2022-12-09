@@ -1,6 +1,7 @@
 <?php  
-
+session_start();
 include "../fungsi/koneksi.php";
+include "../fungsi/fungsi.php";
 
 if(isset($_POST['simpan'])) {
 
@@ -26,9 +27,13 @@ if(isset($_POST['simpan'])) {
         echo "<script>window.alert('Maaf Kode Barang Sudah Ada')
 		window.location='index.php?p=material-m3&id_jenis=3&pas=perlengkapanlainnya'</script>";
     } else if(mysqli_num_rows($query_cek)<=0){
-        $query_insert_kode_brg = mysqli_query($koneksi,"INSERT into stokbarang
-(kode_brg, id_jenis, nama_brg, hargabarang, satuan)
-VALUES 	('$kode_brg', '$id_jenis', '$nama_brg','$hargabarang','$satuan')");
+//        $query_insert_kode_brg_bk_1 = mysqli_query($koneksi,"INSERT into stokbarang
+//(kode_brg, id_jenis, nama_brg, hargabarang, satuan)
+//VALUES 	('$kode_brg', '$id_jenis', '$nama_brg','$hargabarang','$satuan')");
+
+        $query_insert_kode_brg = mysqli_query($koneksi,"INSERT into stokbarang 
+(kode_brg, id_jenis, nama_brg, hargabarang, satuan,bendahara_id,bendahara) 
+VALUES 	('$kode_brg', '$id_jenis', '$nama_brg','$hargabarang','$satuan','$_SESSION[user_id]','$_SESSION[username]')");
 //        echo "Kode Barang Belum Ada";
         if($query_insert_kode_brg){
             echo "<script>window.alert('Kode Barang Berhasil Disimpan')

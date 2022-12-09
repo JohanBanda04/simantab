@@ -2,7 +2,7 @@
 include "../fungsi/koneksi.php";
 include "../fungsi/fungsi.php";
 
-
+//echo $_GET["id_jenis"]."::";
 if (isset($_GET['aksi']) && isset($_GET['id'])) {
         //die($id = $_GET['id']);
   $id = $_GET['id'];
