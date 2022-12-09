@@ -114,8 +114,8 @@ if (isset($_GET['pa'])) {
             <ul class="sidebar-menu">
                 <li class="header"><h4
                         class="text-center"><?php if($_SESSION['jabatan']=="Kasub Operator"){
-                            echo "Kasub Pengelola ";
-                        }  ?> <br> <span style="font-weight: bold"><?= $_SESSION['username']; ?></span> </h4></li>
+                            echo isset($_SESSION['jabatan'])? "Kasub Pengelola <br> Persediaan Barang" : "Anda Belum Login";
+                        }  ?> <br> <span style="font-weight: bold"><?php echo isset($_SESSION['username']) ? ucwords($_SESSION['username']) :"Anda Belum Login" ; ?></span> </h4></li>
                 <li class="treeview <?php if ($_GET['pa']=='Dashboard'){ ?> active <?php } ?>">
                     <a href="index.php?pa=Dashboard" style="<?php if ($_GET['pa']=='Dashboard') { ?>
                             background-color: #c7fff1

@@ -160,9 +160,9 @@ if(isset($_GET['pa'])){
     <aside class="main-sidebar">
         <section class="sidebar">
             <ul class="sidebar-menu">
-                <li class="header"><h4 class="text-center"><?php echo  $_SESSION['jabatan']; ?><br>
-                        <span style="font-weight: bold"><?php echo ucwords($_SESSION['username']); ?></span></h4></li>
-                <li class="<?= $dashboard; ?> treeview ">
+                <li class="header"><h4 class="text-center"><?php echo isset($_SESSION['jabatan'])? $_SESSION['jabatan']:"Anda Belum Login"; ?><br>
+                        <span style="font-weight: bold"><?php echo isset($_SESSION['username'])? ucwords($_SESSION['username']):"Anda Belum Login"; ?></span></h4></li>
+                <li class="<?= $dashboard; ?> treeview">
                     <!--          <li><a href="index.php?p=cetakpesanan"><i class="fa fa-print"></i> Cetak BPP</a></li>-->
                     <a href="index.php?pa=Dashboard"
                        style="<?php if($dashboard=="active"){?> background-color: #c7fff1; opacity: 80% <?php } ?>">

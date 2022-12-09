@@ -113,8 +113,8 @@ if (isset($_GET['pa'])) {
         <section class="sidebar">
             <ul class="sidebar-menu">
                 <li class="header"><h4
-                        class="text-center"><?= $_SESSION['jabatan']; ?> <br>
-                        <span style="font-weight: bold"><?= $_SESSION['username']; ?></span> </h4></li>
+                        class="text-center"><?php echo isset($_SESSION['jabatan'])? $_SESSION['jabatan']:'Anda Belum Login'; ?><br>
+                        <span style="font-weight: bold"><?php echo isset($_SESSION['username'])? $_SESSION['username']:'Anda Belum Login'; ?></span> </h4></li>
                 <li class="treeview <?php if($_GET['pa']=='Dashboard') {?> active <?php } ?>">
                     <a href="index.php?pa=Dashboard" style="<?php if ($_GET['pa']=='Dashboard') { ?>
                             background-color: #c7fff1; opacity: 80%
